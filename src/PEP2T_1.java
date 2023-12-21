@@ -1,10 +1,11 @@
-import static utiles.Utilidades.*;
+import static utiles.Utilidades.print;
+import static utiles.Utilidades.inputfloat;
 
 public class PEP2T_1 {
     public static void main(String[] args) {
         datos datos1 = new datos(Float.parseFloat(args[0]),Float.parseFloat(args[1]));
         boolean salir = false;
-        while (salir == false) {
+        while (!salir) {
             print("\t\t\t\t" + "Menú de opciones");
             print("\t\t\t\t" + "================\n");
             print("\t" + "1) Retirar");
@@ -40,8 +41,8 @@ public class PEP2T_1 {
             print("Tiene establecido ahora un tope de %s€", datos.tope);
         }
         print("Su saldo actual es de %s \n\n", datos.saldo);
-        return;
     }
+
     public static void Ingresos (datos datos){
         float ingresar = (float) inputfloat("Teclee dinero\n");
         print("Usted ingresó %s€", ingresar);
