@@ -2,6 +2,7 @@ import static utiles.Utilidades.*;
 
 public class PEP2T_1 {
     public static void main(String[] args) {
+        datos datos1 = new datos(Float.parseFloat(args[0]),Float.parseFloat(args[1]));
         boolean salir = false;
         while (salir == false) {
             print("\t\t\t\t" + "Menú de opciones");
@@ -12,30 +13,48 @@ public class PEP2T_1 {
 
             int opcion = (int) inputfloat("\n\t\t\t\t" + "Opción: ");
 
-            float saldo = Float.parseFloat(args[0]);
-            print("Su saldo actuales de %s", saldo);
+
+            print("Su saldo actuales de %s", datos1.saldo);
 
             switch (opcion) {
                 case 1:
-
-                    Retirada(saldo, Integer.parseInt(args[1]));
+                    Retirada(datos1);
+                    break;
                 case 2:
-
+                    Ingresos(datos1);
                 case 3:
+                    salir = true;
+                    break;
             }
         }
     }
-    public static int Retirada (float saldo, int tope){
+
+    public static void Retirada (datos datos){
         float retirar = (float) inputfloat("Itroduzca lo que desea retirar\n");
         print("Intenta retirar %s€", retirar);
-        if (retirar < tope) {
-            saldo = saldo - retirar;
+        if (retirar < datos.tope ) {
+            datos.saldo -= retirar;
         }
         else
         {
-            print("Tiene establecido ahora un tope de %s€", tope);
+            print("Tiene establecido ahora un tope de %s€", datos.tope);
         }
-        print("Su saldo actual es de %s \n\n", saldo);
-        return 10;
+        print("Su saldo actual es de %s \n\n", datos.saldo);
+        return;
+    }
+    public static void Ingresos (datos datos){
+        float ingresar = (float) inputfloat("Teclee dinero\n");
+        print("Usted ingresó %s€", ingresar);
+        datos.saldo += ingresar;
+        print("Su saldo actual es de %s€", datos.saldo);
+    }
+
+}
+class datos{
+    float saldo;
+    float tope;
+    public datos(float saldo1, float tope1){
+        saldo = saldo1;
+        tope = tope1;
     }
 }
