@@ -1,28 +1,35 @@
-import static utiles.Utilidades.print;
-import static utiles.Utilidades.inputfloat;
+import java.util.Scanner;
 
 public class PEP2T_1 {
+    float saldo;
+    float tope;
+    PEP2T_1(float saldo1, float tope1){
+        saldo = saldo1;
+        tope = tope1;
+    }
     public static void main(String[] args) {
-        datos datos1 = new datos(Float.parseFloat(args[0]),Float.parseFloat(args[1]));
+        Scanner input = new Scanner(System.in);
+        PEP2T_1 datos1 = new PEP2T_1(Float.parseFloat(args[0]),Float.parseFloat(args[1]));
         boolean salir = false;
         while (!salir) {
-            print("\t\t\t\t" + "Menú de opciones");
-            print("\t\t\t\t" + "================\n");
-            print("\t" + "1) Retirar");
-            print("\t" + "2) Ingreso de dinero");
-            print("\t" + "3) Salir");
+            System.out.println("\t\t\t\t" + "Menú de opciones");
+            System.out.println("\t\t\t\t" + "================\n");
+            System.out.println("\t" + "1) Retirar");
+            System.out.println("\t" + "2) Ingreso de dinero");
+            System.out.println("\t" + "3) Salir");
 
-            int opcion = (int) inputfloat("\n\t\t\t\t" + "Opción: ");
-
-
-            print("Su saldo actuales de %s", datos1.saldo);
+            System.out.print("\n\t\t\t\t" + "Opción: ");
+            int opcion = Integer.parseInt(input.nextLine());
+            
+            System.out.printf("Su saldo actuales de %s\n", datos1.saldo);
 
             switch (opcion) {
                 case 1:
-                    Retirada(datos1);
+                    datos1.Retirada();
                     break;
                 case 2:
-                    Ingresos(datos1);
+                    datos1.Ingresos();
+                    break;
                 case 3:
                     salir = true;
                     break;
@@ -30,32 +37,29 @@ public class PEP2T_1 {
         }
     }
 
-    public static void Retirada (datos datos){
-        float retirar = (float) inputfloat("Itroduzca lo que desea retirar\n");
-        print("Intenta retirar %s€", retirar);
-        if (retirar < datos.tope ) {
-            datos.saldo -= retirar;
+    void Retirada (){
+        Scanner input =new Scanner(System.in);
+        System.out.print("Itroduzca lo que desea retirar:\n");
+        float retirar = Float.parseFloat(input.nextLine());
+        System.out.println();
+        System.out.printf("Intenta retirar %s€ \n", retirar);
+        if (retirar < tope ) {
+            saldo -= retirar;
         }
         else
         {
-            print("Tiene establecido ahora un tope de %s€", datos.tope);
+            System.out.printf("Tiene establecido ahora un tope de %s€\n", saldo);
         }
-        print("Su saldo actual es de %s \n\n", datos.saldo);
+        System.out.printf("Su saldo actual es de %s€ \n\n", saldo);
     }
 
-    public static void Ingresos (datos datos){
-        float ingresar = (float) inputfloat("Teclee dinero\n");
-        print("Usted ingresó %s€", ingresar);
-        datos.saldo += ingresar;
-        print("Su saldo actual es de %s€", datos.saldo);
+    void Ingresos (){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Teclee dinero");
+        float ingresar = Float.parseFloat(input.nextLine());
+        System.out.printf ("Usted ingresó %s€\n", ingresar);
+        saldo += ingresar;
+        System.out.printf("Su saldo actual es de %s€\n", saldo);
     }
 
-}
-class datos{
-    float saldo;
-    float tope;
-    public datos(float saldo1, float tope1){
-        saldo = saldo1;
-        tope = tope1;
-    }
 }
