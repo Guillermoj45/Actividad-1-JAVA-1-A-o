@@ -8,7 +8,7 @@ public class PEP2T_1 {
         tope = tope1;
     }
 
-    public static void main(String[] args) {
+    public static void main (String[] args) {
         Scanner input = new Scanner(System.in);
         PEP2T_1 datos1 = new PEP2T_1(Float.parseFloat(args[0]),Float.parseFloat(args[1]));
         boolean salir = false;
