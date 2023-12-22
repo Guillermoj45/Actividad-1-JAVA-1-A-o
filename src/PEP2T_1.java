@@ -12,7 +12,6 @@ public class PEP2T_1 {
         Scanner input = new Scanner(System.in);
         PEP2T_1 datos1 = new PEP2T_1(Float.parseFloat(args[0]),Float.parseFloat(args[1]));
         boolean salir = false;
-        float retiradoHoy = 0;
         while (!salir) {
             System.out.println("\t\t\t\t" + "Menú de opciones");
             System.out.println("\t\t\t\t" + "================\n");
@@ -27,10 +26,10 @@ public class PEP2T_1 {
 
             switch (opcion) {
                 case 1:
-                    datos1.Retirada(retiradoHoy);
+                    datos1.retirada();
                     break;
                 case 2:
-                    datos1.Ingresos();
+                    datos1.ingresos();
                     break;
                 case 3:
                     salir = true;
@@ -40,14 +39,15 @@ public class PEP2T_1 {
         }
     }
 
-    float Retirada (float retirar){
+    float retirada (){
         Scanner input = new Scanner(System.in);
-        System.out.print("Itroduzca lo que desea retirar:\n");
-        retirar = input.nextFloat();
+        System.out.print("Introduzca lo que desea retirar:\n");
+        float retirar = input.nextFloat();
         System.out.println();
         System.out.printf("Intenta retirar %s€ \n", retirar);
         if (retirar < tope ) {
             saldo -= retirar;
+            tope -= retirar;
         }
         else
         {
@@ -56,7 +56,7 @@ public class PEP2T_1 {
         return retirar;
     }
 
-    void Ingresos (){
+    void ingresos (){
         Scanner input = new Scanner(System.in);
         System.out.println("Teclee dinero");
         float ingresar = input.nextFloat();
