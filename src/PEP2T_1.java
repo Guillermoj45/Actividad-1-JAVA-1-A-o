@@ -13,17 +13,18 @@ public class PEP2T_1 {
         PEP2T_1 datos1 = new PEP2T_1(Float.parseFloat(args[0]),Float.parseFloat(args[1]));
         boolean salir = false;
         while (!salir) {
+
             System.out.println("\t\t\t\t" + "Menú de opciones");
             System.out.println("\t\t\t\t" + "================\n");
-            System.out.println("\t" + "1) Retirar");
+            System.out.println("\t" + "1) Retirada de dinero");
             System.out.println("\t" + "2) Ingreso de dinero");
             System.out.println("\t" + "3) Salir");
 
             System.out.print("\n\t\t\t\t" + "Opción: ");
             int opcion = input.nextInt();
-            
-            System.out.printf("Su saldo actuales de %s\n", datos1.saldo);
+            System.out.println();
 
+            System.out.printf("\t\tSu saldo actual es de %s €\n", datos1.saldo);
             switch (opcion) {
                 case 1:
                     datos1.retirada();
@@ -35,32 +36,32 @@ public class PEP2T_1 {
                     salir = true;
                     break;
             }
-            System.out.printf("Su saldo actual es de %s€ \n\n\n", datos1.saldo);
+
+            System.out.printf("\t\tSu saldo actual es de %s € \n\n\n", datos1.saldo);
         }
     }
 
-    float retirada (){
+    void retirada (){
         Scanner input = new Scanner(System.in);
-        System.out.print("Introduzca lo que desea retirar:\n");
+        System.out.print("\t\tTeclee dinero a retirar:\n\t\t");
         float retirar = input.nextFloat();
-        System.out.println();
-        System.out.printf("Intenta retirar %s€ \n", retirar);
-        if (retirar < tope ) {
+        System.out.printf("\t\tIntenta retirar %s € \n", retirar);
+
+        if (retirar < tope) {
             saldo -= retirar;
             tope -= retirar;
         }
         else
         {
-            System.out.printf("Tiene establecido ahora un tope de %s€\n", tope);
+            System.out.printf("\t\tTiene establecido ahora un tope de %3.0f€ \n", tope);
         }
-        return retirar;
     }
 
     void ingresos (){
         Scanner input = new Scanner(System.in);
-        System.out.println("Teclee dinero");
+        System.out.print("\t\tTeclee dinero a ingresar:\n\t\t");
         float ingresar = input.nextFloat();
-        System.out.printf ("Usted ingresó %s€\n", ingresar);
+        System.out.printf ("\t\tUsted ingresó %s €\n", ingresar);
         saldo += ingresar;
     }
 
