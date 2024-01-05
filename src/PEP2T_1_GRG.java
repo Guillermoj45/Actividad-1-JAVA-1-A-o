@@ -1,16 +1,16 @@
 import java.util.Scanner;
 
-public class PEP2T_1 {
+public class PEP2T_1_GRG {
     float saldo;
     float tope;
-    PEP2T_1(float saldo1, float tope1){
+    PEP2T_1_GRG(float saldo1, float tope1){
         saldo = saldo1;
         tope = tope1;
     }
 
     public static void main (String[] args) {
         Scanner input = new Scanner(System.in);
-        PEP2T_1 datos1 = new PEP2T_1(Float.parseFloat(args[0]),Float.parseFloat(args[1]));
+        PEP2T_1_GRG datos1 = new PEP2T_1_GRG(Float.parseFloat(args[0]),Float.parseFloat(args[1]));
         boolean salir = false;
         while (!salir) {
 
