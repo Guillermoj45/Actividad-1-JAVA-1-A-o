@@ -41,12 +41,7 @@ public class PEP2T_1_GRG {
         }
     }
 
-    void retirada (){
-        Scanner input = new Scanner(System.in);
-        System.out.print("\t\tTeclee dinero a retirar:\n\t\t");
-        float retirar = input.nextFloat();
-        System.out.printf("\t\tIntenta retirar %s € \n", retirar);
-
+    void verificacion(float retirar) {
         if (retirar < tope && retirar < saldo) {
             saldo -= retirar;
             tope -= retirar;
@@ -55,6 +50,14 @@ public class PEP2T_1_GRG {
         {
             System.out.printf("\t\tTiene establecido ahora un tope de %3.0f€ \n", tope);
         }
+    }
+
+    void retirada (){
+        Scanner input = new Scanner(System.in);
+        System.out.print("\t\tTeclee dinero a retirar:\n\t\t");
+        float retirar = input.nextFloat();
+        System.out.printf("\t\tIntenta retirar %s € \n", retirar);
+        verificacion(retirar);
     }
 
     void ingresos (){
