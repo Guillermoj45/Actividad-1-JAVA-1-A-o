@@ -10,7 +10,7 @@ public class PEP2T_1_GRG {
 
     public static void main (String[] args) {
         Scanner input = new Scanner(System.in);
-        PEP2T_1_GRG datos1 = new PEP2T_1_GRG(Float.parseFloat(args[0]),Float.parseFloat(args[1]));
+        PEP2T_1_GRG datos1 = new PEP2T_1_GRG(Float.parseFloat(args[0]), Float.parseFloat(args[1]));
         boolean salir = false;
         while (!salir) {
 
@@ -47,7 +47,7 @@ public class PEP2T_1_GRG {
         float retirar = input.nextFloat();
         System.out.printf("\t\tIntenta retirar %s € \n", retirar);
 
-        if (retirar < tope) {
+        if (retirar < tope && retirar < saldo) {
             saldo -= retirar;
             tope -= retirar;
         }
