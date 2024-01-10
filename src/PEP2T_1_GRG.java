@@ -10,7 +10,7 @@ public class PEP2T_1_GRG {
         saldo = saldo1;
         tope = tope1;
     }
-
+    Scanner input = new Scanner(System.in);
     // Metodo main (metodo inicial, contiene el menu de inicio
     public static void main (String[] args) {
         // Creacion de un objeto de Scanner para que el cliente pueda introducir datos
@@ -52,7 +52,6 @@ public class PEP2T_1_GRG {
 
     // Creacion de metodos para la verificacion de los limites y pedir los datos al cliente
     private void verificacionTope () {
-        Scanner input = new Scanner(System.in);
         System.out.print("\t\tTeclee dinero a retirar:\n\t\t");
         float retirar = input.nextFloat();
         if (retirar < tope) {
@@ -85,8 +84,6 @@ public class PEP2T_1_GRG {
 
     // Metodos para hacer el ingreso de dinero
     private void ingresos (){
-        Scanner input = new Scanner(System.in);
-
         System.out.print("\t\tTeclee dinero a ingresar:\n\t\t");
         float ingresar = input.nextFloat();
 
