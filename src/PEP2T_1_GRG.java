@@ -1,16 +1,9 @@
 import java.util.Scanner;
 
 public class PEP2T_1_GRG {
-    // Creacion de los atributos para el metodo constructor
-    float saldo;
-    float tope;
-
-    // Creacion de metodo constructor
-    private PEP2T_1_GRG(float saldo1, float tope1){
-        saldo = saldo1;
-        tope = tope1;
-    }
+    // Creacion de un objeto de Scanner para que el cliente pueda introducir datos
     Scanner input = new Scanner(System.in);
+
     // Metodo main (metodo inicial, contiene el menu de inicio
     public static void main (String[] args) {
         // Creacion de un objeto de Scanner para que el cliente pueda introducir datos
@@ -48,6 +41,16 @@ public class PEP2T_1_GRG {
 
             System.out.printf("\t\tSu saldo actual es de %s € \n\n\n", datos1.saldo);
         }
+    }
+
+    // Creacion de los atributos para el metodo constructor
+    float saldo;
+    float tope;
+
+    // Creacion de metodo constructor
+    private PEP2T_1_GRG(float saldo1, float tope1){
+        saldo = saldo1;
+        tope = tope1;
     }
 
     // Creacion de metodos para la verificacion de los limites y pedir los datos al cliente
@@ -90,5 +93,4 @@ public class PEP2T_1_GRG {
         saldo += ingresar;
         System.out.printf ("\t\tUsted ingresó %s €\n", ingresar);
     }
-
 }
