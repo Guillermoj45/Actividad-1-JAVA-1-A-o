@@ -26,10 +26,10 @@ public class PEP2T_1_GRG {
             System.out.println();
 
             // Eleccion de opciones
-            System.out.printf("\t\tSu saldo actual es de %s €\n", datos1.saldo);
+            datos1.verificacionDinero();
             switch (opcion) {
                 case 1:
-                    datos1.verificacionTope();
+                    datos1.retirada();
                     break;
                 case 2:
                     datos1.ingresos();
@@ -39,7 +39,7 @@ public class PEP2T_1_GRG {
                     break;
             }
 
-            System.out.printf("\t\tSu saldo actual es de %s € \n\n\n", datos1.saldo);
+            datos1.verificacionDinero();
         }
     }
 
@@ -54,35 +54,36 @@ public class PEP2T_1_GRG {
     }
 
     // Creacion de metodos para la verificacion de los limites y pedir los datos al cliente
-    private void verificacionTope () {
+    private void verificacionTope (float retirar){
+        System.out.printf("\t\tIntenta retirar %s € \n", retirar);
+        System.out.printf("\t\tTiene establecido ahora un tope de %3.0f€ \n", tope);
+
+    }
+
+    private void verificacionDinero (){
+        System.out.printf("\t\tSu saldo actual es de %s €\n", saldo);
+    }
+
+    // Metodo para hacer la retirada
+    private void retirada () {
         System.out.print("\t\tTeclee dinero a retirar:\n\t\t");
         float retirar = input.nextFloat();
-        if (retirar < tope) {
-            verificacionDinero(retirar);
+        if (retirar <= tope) {
+            if (retirar <= saldo){
+                saldo -= retirar;
+                tope -= retirar;
+            }
+            else
+            {
+                System.out.printf("\t\tIntenta retirar %s € \n", retirar);
+                System.out.println("No tiene el suficiente dinero en la cuenta, revise sus ingresos");
+            }
             System.out.printf("\t\tUsted retiró %s €\n", retirar);
         }
         else
         {
-            System.out.printf("\t\tIntenta retirar %s € \n", retirar);
-            System.out.printf("\t\tTiene establecido ahora un tope de %3.0f€ \n", tope);
+            verificacionTope(retirar);
         }
-    }
-
-    private void verificacionDinero (float retirar){
-        if (retirar < saldo){
-            retirada(retirar);
-        }
-        else
-        {
-            System.out.printf("\t\tIntenta retirar %s € \n", retirar);
-            System.out.println("No tiene el suficiente dinero en la cuenta, revise sus ingresos");
-        }
-    }
-
-    // Metodo para hacer la retirada
-    private void retirada (float retirar){
-        saldo -= retirar;
-        tope -= retirar;
     }
 
     // Metodos para hacer el ingreso de dinero
