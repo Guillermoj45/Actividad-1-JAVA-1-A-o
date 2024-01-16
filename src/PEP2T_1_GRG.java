@@ -14,7 +14,7 @@ public class PEP2T_1_GRG {
         boolean salir = false;
         while (!salir) {
             // Menu de inicio
-            System.out.println("\t\t\t\t" + "Menú de opciones");
+            System.out.println("\n\n\t\t\t\t" + "Menú de opciones");
             System.out.println("\t\t\t\t" + "================\n");
             System.out.println("\t" + "1) Retirada de dinero");
             System.out.println("\t" + "2) Ingreso de dinero");
