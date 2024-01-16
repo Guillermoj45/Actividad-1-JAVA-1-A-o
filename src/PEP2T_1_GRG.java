@@ -57,12 +57,10 @@ public class PEP2T_1_GRG {
     private void verificacionTope (float retirar){
         System.out.printf("\t\tIntenta retirar %s € \n", retirar);
         System.out.printf("\t\tTiene establecido ahora un tope de %3.0f€ \n", tope);
-
+        
     }
 
-    private void verificacionDinero (){
-        System.out.printf("\t\tSu saldo actual es de %s €\n", saldo);
-    }
+    private void verificacionDinero (){System.out.printf("\t\tSu saldo actual es de %s €\n", saldo);}
 
     // Metodo para hacer la retirada
     private void retirada () {
