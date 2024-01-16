@@ -1,6 +1,23 @@
 import java.util.Scanner;
 
 public class PEP2T_1_GRG {
+    // Creacion de los atributos para el metodo constructor
+    float saldo;
+    float tope;
+
+    // Creacion de metodo constructor
+    private PEP2T_1_GRG(float saldo1, float tope1){
+        saldo = saldo1;
+        tope = tope1;
+    }
+
+    // Creacion de metodos para la verificacion de los limites y pedir los datos al cliente
+    private void verificacionTope (float retirar){
+        System.out.printf("\t\tIntenta retirar %s € \n", retirar);
+        System.out.printf("\t\tTiene establecido ahora un tope de %3.0f€ \n", tope);
+
+    }
+
     // Creacion de un objeto de Scanner para que el cliente pueda introducir datos
     Scanner input = new Scanner(System.in);
 
@@ -43,22 +60,6 @@ public class PEP2T_1_GRG {
         }
     }
 
-    // Creacion de los atributos para el metodo constructor
-    float saldo;
-    float tope;
-
-    // Creacion de metodo constructor
-    private PEP2T_1_GRG(float saldo1, float tope1){
-        saldo = saldo1;
-        tope = tope1;
-    }
-
-    // Creacion de metodos para la verificacion de los limites y pedir los datos al cliente
-    private void verificacionTope (float retirar){
-        System.out.printf("\t\tIntenta retirar %s € \n", retirar);
-        System.out.printf("\t\tTiene establecido ahora un tope de %3.0f€ \n", tope);
-        
-    }
 
     private void verificacionDinero (){System.out.printf("\t\tSu saldo actual es de %s €\n", saldo);}
 
